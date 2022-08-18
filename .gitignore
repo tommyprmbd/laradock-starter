@@ -1,0 +1,5 @@
+.docker/data/redis
+.docker/data/mysql
+
+.env
+.docker/compose/db.env

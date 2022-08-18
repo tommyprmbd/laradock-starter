@@ -1,7 +1,7 @@
 version: '3'
 services:
   app:
-    container_name: tommypria_app
+    container_name: ${APP_NAME}_app
     image: tommypria:php8.1.0
     volumes:
       - ../../src:/var/www/html
@@ -10,7 +10,7 @@ services:
       - backend
 
   web:
-    container_name: tommypria_web
+    container_name: ${APP_NAME}_web
     image: nginx:alpine
     ports:
       - ${DOCKER_WEB_PORT}:80
@@ -24,7 +24,7 @@ services:
       - app
 
   db:
-    container_name: tommypria_db
+    container_name: ${APP_NAME}_db
     image: mysql:5.7.22
     tty: true
     env_file:
@@ -39,7 +39,7 @@ services:
     restart: unless-stopped
 
   redis:
-    container_name: tommypria_redis
+    container_name: ${APP_NAME}_redis
     image: redis:alpine
     command: redis-server --appendonly yes --requirepass "${REDIS_PASSWORD}"
     volumes:

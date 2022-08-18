@@ -33,6 +33,18 @@ $ docker-compose --env-file=./.env --file=".docker/compose/docker-compose.yml" u
     ```
 3. Paste the ip address on DB_HOST inside of file `./src/.env`
 
+### Composer Install
+
+```bash
+$ composer install
+```
+
+### Generate App Key
+
+```bash
+$ php artisan key:generate
+```
+
 # In Case Need to reset the setup
 
 ### Drop Container

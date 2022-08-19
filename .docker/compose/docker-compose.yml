@@ -36,7 +36,6 @@ services:
       - ./../config/mysql/my.cnf:/etc/mysql/my.cnf
     networks:
       - backend
-    restart: unless-stopped
 
   redis:
     container_name: ${APP_NAME}_redis

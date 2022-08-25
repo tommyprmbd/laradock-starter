@@ -43,6 +43,10 @@ class Kernel extends HttpKernel
             'throttle:api',
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
         ],
+
+        'adm' => [
+            \Illuminate\View\Middleware\ShareErrorsFromSession::class,
+        ]
     ];
 
     /**

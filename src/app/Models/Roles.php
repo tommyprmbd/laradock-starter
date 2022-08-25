@@ -19,9 +19,9 @@ class Roles extends Model
 
     public $incrementing = false;
 
-    public function users()
+    public function admins()
     {
-        return $this->hasMany(User::class, 'role');
+        return $this->hasMany(Admins::class, 'role');
     }
 
     public function rolePermissions()

@@ -4,7 +4,9 @@
         <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
     </div>
     @if (session('error'))
-        {{ session('error') }}
+        <div class="alert alert-danger">
+            {{ session('error') }}
+        </div>
     @endif
     <form class="user" method="post" action="{{ route('admin.login') }}">
         @csrf

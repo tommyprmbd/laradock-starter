@@ -36,8 +36,4 @@
             Login
         </button>
     </form>
-    <hr>
-    <div class="text-center">
-        <a class="small" href="{{ route('admin.forgot-password') }}">Forgot Password?</a>
-    </div>
 @endsection

@@ -10,8 +10,6 @@ class DashboardController extends Controller
 {
     public function dashboard()
     {
-        // dd(Auth::check());
-        dd(Auth::guard('admin')->user());
-        echo "<h1>Admin</h1>";
+        return view('admin.dashboard');
     }
 }

@@ -2,7 +2,9 @@
 
 namespace App\Exceptions;
 
+use Exception;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Illuminate\Support\Facades\Auth;
 use Throwable;
 
 class Handler extends ExceptionHandler
@@ -46,5 +48,19 @@ class Handler extends ExceptionHandler
         $this->reportable(function (Throwable $e) {
             //
         });
+    }
+
+    /**
+     * custom error handle, to separate error page for admin and site
+     */
+    public function render($request, Throwable $exception)
+    {
+        if ($this->isHttpException($exception)) {
+            if (Auth::guard('admin')->check() && $request->segment(1) == 'admin') {
+                return response()->view('admin.error.' . $exception->getStatusCode(), [], $exception->getStatusCode());
+            }
+        }
+
+        return parent::render($request, $exception);
     }
 }
